@@ -50,6 +50,15 @@ h3 {
 
 }
 
+#getRealTempButton {
+    position: relative;
+    left: 50%;
+    border: none;
+    background-color: rgba(255, 166, 0, 0.518);
+    /* text-align: right; */
+    border-radius: 10px;
+}
+
 #cityText {
     background-color:#d4b6f1;
     margin: 10px;
