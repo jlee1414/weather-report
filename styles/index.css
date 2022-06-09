@@ -1,5 +1,5 @@
 body {
-    background-color: cornflowerblue;
+    background-color: #6495ed;
     font-family: 'Times New Roman', Times, serif
 }
 
@@ -13,36 +13,8 @@ header{
 }
 
 #tempCountContainer, #sky, #city {
-    background-color: white;
+    background-color: #ffffff;
 }
-
-#tempCount {
-    font-size: 18pt;
-}
-
-.tempColor1 {
-    color: teal;
-}
-
-.tempColor2 {
-    color: green;
-}
-
-.tempColor3 {
-    color: yellow;
-}
-
-.tempColor4 {
-    color: orange;
-}
-
-.tempColor5 {
-    color: red;
-}
-
-/* #weatherGarden {
-    text-align: right;
-} */
 
 #landscape {
     background-color: gray;
@@ -52,7 +24,7 @@ header{
 /* Dropdown Button */
 .dropbtn {
     background-color: #3498DB;
-    color: white;
+    color: #ffffff;
     padding: 16px;
     font-size: 16px;
     border: 5pt;
@@ -76,13 +48,13 @@ header{
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px #00000033;
     z-index: 1;
 }
 
   /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
+    color: #000000;
     padding: 12px 16px;
     text-decoration: none;
     display: block;

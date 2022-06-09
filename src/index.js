@@ -14,6 +14,8 @@ const state = {
 
 //Q: are separate increaseTemp and decreaseTemp variables needed here or can I put these under on changeTemp const?
 
+//Q: queryselector vs getelementbyid??
+
 const increaseTemp = (event) => {
   // const newTemp = document.createElement('span');
   const tempCountContainer = document.querySelector('#tempCount');
@@ -30,12 +32,19 @@ const decreaseTemp = (event) => {
 };
 
 function changeTempColor() {
-  let temp = state.tempCount;
-  let color = 'black';
-  if (temp <= 49) {
-    temp.color = 'teal';
+  const temperature = document.querySelector('#tempCount');
+  if (state.tempCount < 50) {
+    temperature.style.color = 'purple';
+  } else if (state.tempCount > 49 && state.tempCount < 60) {
+    temperature.style.color = 'blue';
+  } else if (state.tempCount > 59 && state.tempCount < 70) {
+    temperature.style.color = 'green';
+  } else if (state.tempCount > 69 && state.tempCount < 80) {
+    temperature.style.color = 'orange';
+  } else if (state.tempCount > 79) {
+    temperature.style.color = 'red';
   }
-};
+}
 
 // wave 3, city name must update every time there is a text input
 
@@ -48,15 +57,16 @@ const cityInput = () => {
 //wave 05
 const skyDropDown = () => {
   document.getElementById('skyTypes').classList.toggle('show');
+};
+
+function junnieGoToSleep() {
+  HAHAHHAHAHAHA;
+  console.log('zZzZ...:)');
 }
 
-function junnieGoToSleep() { HAHAHHAHAHAHA
-  console.log('zZzZ...:)')
-}
-
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var dropdowns = document.getElementsByClassName('dropdown-content');
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
@@ -65,8 +75,7 @@ window.onclick = function(event) {
       }
     }
   }
-}
-
+};
 
 const registerEventHandlers = (event) => {
   const cityName = document.getElementById('cityTemp');
@@ -79,9 +88,7 @@ const registerEventHandlers = (event) => {
   decreaseTempButton.addEventListener('click', decreaseTemp);
 
   //const skyDropDown = document.getElementById('skyTypes');
-  
 };
-
 
 if (document.readyState !== 'loading') {
   registerEventHandlers();
