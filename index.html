@@ -14,12 +14,12 @@
         </h1>
     </header>
 
-    <section>
-        <h2 id="cityText">For the lovely city of <div id="cityName"></div></h2>
+    <section id="cityText">
+        <h2>For the lovely city of <div id="cityName"></div></h2>
     </section>
 
     <section id="tempCountContainer">
-        <!-- <h3>Temperature</h3> -->
+        <h3>Temperature</h3>
         <button id="increaseTempButton">⬆️</button>
         <h3 id="tempCount">0</h3>
         <button id="decreaseTempButton">⬇️</button>
@@ -29,27 +29,28 @@
         <h3>Weather Garden</h3>
         <section id="landscape">
             (landscape section, wave2)
-        </section>
-
     </section>
+
 
     <section id="city"> <h3>City Name</h3>
         <!-- (Use API to get current city's temperature, wave4) -->
 
         <label>Input City:</label>
         <input type="text" id="cityTemp" > 
-        
         <button type="button">
             Reset 
         </button> 
-        
         <p id="cityInput"></p>
-        
-        
     </section>
 
     <section id="sky">
-        (Sky type, wave5)
+        <button onclick="skyDropDown()" class="dropbtn">Change the Sky</button>
+        <div id="skyTypes" class="dropdown-content">
+        <a href="">Sunny</a>
+        <a href="">Cloudy</a>
+        <a href="">Rainy</a>
+        <a href="">Snowy</a>
+  </div>
     </section>
     
     <section>
