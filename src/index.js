@@ -29,7 +29,7 @@ const decreaseTemp = (event) => {
   changeTempColor();
 };
 
-const changeTempColor = () => {
+function changeTempColor() {
   let temp = state.tempCount;
   let color = 'black';
   if (temp <= 49) {
@@ -46,7 +46,7 @@ const cityInput = () => {
 };
 
 //wave 05
-function skyDropDown() {
+const skyDropDown = () => {
   document.getElementById('skyTypes').classList.toggle('show');
 }
 
@@ -77,7 +77,11 @@ const registerEventHandlers = (event) => {
 
   const decreaseTempButton = document.querySelector('#decreaseTempButton');
   decreaseTempButton.addEventListener('click', decreaseTemp);
+
+  //const skyDropDown = document.getElementById('skyTypes');
+  
 };
+
 
 if (document.readyState !== 'loading') {
   registerEventHandlers();
