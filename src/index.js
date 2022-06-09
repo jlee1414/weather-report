@@ -40,6 +40,10 @@ const registerEventHandlers = (event) => {
   // increase temp event handler
   const increaseTempButton = document.querySelector('#increaseTempButton');
   increaseTempButton.addEventListener('click', increaseTemp);
+
+  const decreaseTempButton = document.querySelector('#decreaseTempButton');
+  decreaseTempButton.addEventListener('click', decreaseTemp);
+
 };
 
 if (document.readyState !== 'loading') {
