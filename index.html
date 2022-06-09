@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Report</title>
-    <link href="/styles/index.css" rel="stylesheet" /> 
-</head>
-<body>
-    <header>
-        <h1>
-            Weather Report
-        </h1>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>
+        <link href="/styles/index.css" rel="stylesheet" /> 
+    </head>
+    <body>
+        <main class="container">
+            <header class="header">
+                <h1>
+                    Weather Report
+                </h1>
+            </header>
 
-    <section id="cityText">
-        <h2>For the lovely city of <div id="cityName"></div></h2>
-    </section>
+            <section id="cityText">
+                <h2>For the lovely city of <div id="cityName"></div></h2>
+            </section>
 
-    <section id="tempCountContainer">
-        <h3>Temperature</h3>
-        <button id="increaseTempButton">⬆️</button>
-        <h3 id="tempCount">0</h3>
-        <button id="decreaseTempButton">⬇️</button>
-    </section>
-    
-    <section id="weatherGarden">
-        <h3>Weather Garden</h3>
-        <section id="landscape">
-            (landscape section, wave2)
-    </section>
+            <section id="tempCountContainer">
+                <h3>Temperature (°F)</h3>
+                <button id="increaseTempButton">⬆️</button>
+                <h3 id="tempCount">0</h3>
+                <button id="decreaseTempButton">⬇️</button>
+            </section>
+            
+            <section id="weatherGarden">
+                <h3>Weather Garden</h3>
+                <div id="landscape"></div>
+            </section>
 
+            <section id="city">
+                <h3>City Name</h3>
+                <!-- (Use API to get current city's temperature, wave4) -->
 
-    <section id="city"> <h3>City Name</h3>
-        <!-- (Use API to get current city's temperature, wave4) -->
+                <label>Input City:</label>
+                <input type="text" id="cityTemp" > 
+                <button type="button">
+                    Reset 
+                </button> 
+                <p id="cityInput"></p>
+            </section>
 
-        <label>Input City:</label>
-        <input type="text" id="cityTemp" > 
-        <button type="button">
-            Reset 
-        </button> 
-        <p id="cityInput"></p>
-    </section>
-
-    <section id="sky">
-        <button onclick="skyDropDown()" class="dropbtn">Change the Sky</button>
-        <div id="skyTypes" class="dropdown-content">
-        <a href="">Sunny</a>
-        <a href="">Cloudy</a>
-        <a href="">Rainy</a>
-        <a href="">Snowy</a>
-        </div>
-    </section>
-    
-    <section>
-        <!-- //(button to reset city name, wave6) -->
-    </section>
-
-
-
+            <section id="sky">
+                <h3>Sky</h3>
+                <button onclick="skyDropDown()" class="dropbtn">Change the Sky</button>
+                <div id="skyTypes" class="dropdown-content">
+                <a href="">Sunny</a>
+                <a href="">Cloudy</a>
+                <a href="">Rainy</a>
+                <a href="">Snowy</a>
+                </div>
+            </section>
+            
+            <section>
+                <!-- //(button to reset city name, wave6) -->
+            </section>
 
 
 
-
-
-
-    <script src="/src/index.js"></script>
-    <script src="./node_modules/axios/dist/axios.min.js"></script>
-</body>
+            <script src="/src/index.js"></script>
+            <script src="./node_modules/axios/dist/axios.min.js"></script>
+            
+        </main>
+    </body>
+    <footer>
+        <p>&copy; 2022</p>
+    </footer>
 </html>

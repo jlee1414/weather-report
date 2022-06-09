@@ -1,20 +1,20 @@
 'use strict';
 
 /* wave 2 
---> element that displays temp
---> 2 clickable elements: 
-    +1 degree on click and 
-    -1 degree on click 
+* to do *
 --> element that displays landscape
+
+* question parking lot *
+--> are separate increaseTemp and decreaseTemp variables needed or can I put these under one changeTemp const?
+
+--> pros/cons of using queryselector vs getelementbyid?
+
+--> why do the increase/decrease temp buttons have borders?
 */
 
 const state = {
   tempCount: 0,
 };
-
-//Q: are separate increaseTemp and decreaseTemp variables needed here or can I put these under on changeTemp const?
-
-//Q: queryselector vs getelementbyid??
 
 const increaseTemp = (event) => {
   // const newTemp = document.createElement('span');
@@ -22,6 +22,7 @@ const increaseTemp = (event) => {
   tempCountContainer.textContent = `${state.tempCount}`;
   state.tempCount += 1;
   changeTempColor();
+  populateLandscape();
 };
 
 const decreaseTemp = (event) => {
@@ -29,6 +30,7 @@ const decreaseTemp = (event) => {
   tempCountContainer.textContent = `${state.tempCount}`;
   state.tempCount -= 1;
   changeTempColor();
+  populateLandscape();
 };
 
 function changeTempColor() {
@@ -43,6 +45,21 @@ function changeTempColor() {
     temperature.style.color = 'orange';
   } else if (state.tempCount > 79) {
     temperature.style.color = 'red';
+  }
+}
+
+function populateLandscape() {
+  const landscape = document.getElementById('landscape');
+  if (state.tempCount < 50) {
+    landscape.textContent = '❄️🌲⛄️🌲⛄️❄️🌲❄️🌲🌲⛄️❄️🌲🌲';
+  } else if (state.tempCount > 49 && state.tempCount < 60) {
+    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+  } else if (state.tempCount > 59 && state.tempCount < 70) {
+    landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+  } else if (state.tempCount > 69 && state.tempCount < 80) {
+    landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+  } else if (state.tempCount > 79) {
+    landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   }
 }
 
