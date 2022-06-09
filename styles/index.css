@@ -12,11 +12,11 @@ header{
     text-align: center;
 }
 
-#temperature-container, #sky, #city {
+#tempCountContainer, #sky, #city {
     background-color: white;
 }
 
-#temp-text-display{
+#tempCount{
     font-size: 18pt;
 }
 
