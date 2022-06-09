@@ -15,27 +15,46 @@
     </header>
 
     <section>
-        <h2 id="cityname">For the lovely city of (wave3) </h2>
+        <h2 id="cityText">For the lovely city of <div id="cityName"></div></h2>
     </section>
 
-    <section> id="temperature">
-        (temperature section, wave2)
+    <section id="temperature-container">
+        <h3>Temperature</h3>
+        <button id="increaseTempButton">⬆️</button>
+        <h3 id="temp-text-display">0</h3>
+        <button id="decreaseTempButton">⬇️</button>
+        <p></p>
     </section>
     
-    <section> id="landscape">
-        (landscape section, wave2)
+    <section id="weather-garden">
+        <h3>Weather Garden</h3>
+        <section id="landscape">
+            (landscape section, wave2)
+        </section>
+
     </section>
 
-    <section> id="citytemp">
-        (Use API to get current city's temperature, wave4)
+    <section id="city"> <h3>City Name</h3>
+        <!-- (Use API to get current city's temperature, wave4) -->
+
+        <label>Input City:</label>
+        <input type="text" id="cityTemp" > 
+        
+        <button type="button">
+            Reset 
+        </button> 
+        
+        <p id="cityInput"></p>
+        
+        
     </section>
 
-    <section> id="sky">
+    <section id="sky">
         (Sky type, wave5)
     </section>
     
     <section>
-        (button to reset city name, wave6)
+        <!-- //(button to reset city name, wave6) -->
     </section>
 
 

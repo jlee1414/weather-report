@@ -1,4 +1,4 @@
-body{
+body {
     background-color: cornflowerblue;
     font-family: 'Times New Roman', Times, serif
 }
@@ -8,7 +8,22 @@ header{
     font-size: 22pt
 }
 
-#city{
+#cityname {
     text-align: center;
-    
+}
+
+#temperature-container, #sky, #city {
+    background-color: white;
+}
+
+#temp-text-display{
+    font-size: 18pt;
+}
+
+/* #weather-garden {
+    text-align: right;
+} */
+
+#landscape {
+    background-color: gray;
 }
