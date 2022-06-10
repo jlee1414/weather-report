@@ -5,6 +5,11 @@ const state = {
   cityName: '',
   latitude: 0,
   longitude: 0,
+  sunny: '',
+  cloudy: '',
+  rainy: '',
+  snowy: '',
+  catsanddogs: '',
 };
 
 function convertTempKtoF(tempInK) {
@@ -100,41 +105,43 @@ function populateLandscape() {
 // wave 3, city name must update every time there is a text input
 
 const cityInput = () => {
-  let inputValue = document.getElementById('cityTemp').value;
-  const city = document.getElementById('cityName');
+  let inputValue = document.getElementById('userInputCity').value;
+  let city = document.getElementById('cityName');
   city.textContent = inputValue;
   state.cityName = inputValue;
 };
 
-//wave 05
-const skyDropDown = () => {
-  document.getElementById('skyTypes').classList.toggle('show');
-};
+function resetCityInput() {
+  let city = document.getElementById('cityName');
+  city.textContent = '';
+}
 
-// function junnieGoToSleep() {
-//   HAHAHHAHAHAHA;
-//   console.log('zZzZ...:)');
-// }
-
-window.onclick = function (event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName('dropdown-content');
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
+// // //wave 05
+function populateSky() {
+  const sky = document.getElementById('sky');
+  if ((id = 'sunny')) {
+    sky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (state.cloudy) {
+    sky.textContent = '☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (state.rainy) {
+    sky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (state.snowy) {
+    sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  } else if (state.catsanddogs) {
+    sky.textContent = '🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶';
   }
-};
+}
 
 const registerEventHandlers = (event) => {
   changeTempColor();
   populateLandscape();
+  populateSky();
 
-  const cityName = document.getElementById('cityTemp');
+  const cityName = document.getElementById('userInputCity');
   cityName.addEventListener('change', cityInput);
+
+  const clearCityName = document.getElementById('clearButton');
+  clearCityName.addEventListener('click', resetCityInput);
 
   const getRealTempButton = document.querySelector('#getRealTempButton');
   getRealTempButton.addEventListener('click', getCityCoordinates);
@@ -145,7 +152,12 @@ const registerEventHandlers = (event) => {
   const decreaseTempButton = document.querySelector('#decreaseTempButton');
   decreaseTempButton.addEventListener('click', decreaseTemp);
 
-  //const skyDropDown = document.getElementById('skyTypes');
+  const selectTheSky = document.querySelector('#changeTheSky');
+  selectTheSky.addEventListener('change', populateSky);
+
+  // const skyOuput = document.querySelector('.result');
+
+  // result.textContent = '${event.target.value}';
 };
 
 if (document.readyState !== 'loading') {

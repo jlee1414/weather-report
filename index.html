@@ -24,39 +24,67 @@
                 <button id="increaseTempButton">⬆️</button>
                 <h3 id="tempCount">0</h3>
                 <button id="decreaseTempButton">⬇️</button>
-                <button id="getRealTempButton">Get Realtime Temperature🌡</button> 
+                <br>
+                <!-- <button id="getRealTempButton">Get Realtime Temperature🌡</button>  -->
             </section>
             
             <section id="weatherGarden">
                 <h3>Weather Garden</h3>
+                <div id="sky"></div>
                 <div id="landscape"></div>
             </section>
 
             <section id="city">
-                <h3>City Name</h3>
-                <!-- (Use API to get current city's temperature, wave4) -->
-
-                <label>Input City:</label>
-                <input type="text" id="cityTemp" > 
-                <button type="button">
+                <h3>City</h3>
+                <!-- <label>Input City:</label> -->
+                <!-- <input type="text" id="userInputCity" >  -->
+                <!-- <button type="button" onclick="resetCityInput()">
                     Reset 
-                </button> 
+                </button>  -->
                 <p id="cityInput"></p>
+
+                <form>
+                    Enter City Name:
+                    <input type="text" id="userInputCity">
+                    <input type="reset" 
+                    id="clearButton" value="Clear">
+                    <br>
+                    <input type="button" id="getRealTempButton" value="Get Temperature🌡">
+                    
+                </form>
+
             </section>
 
-            <section id="sky">
-                <h3>Sky</h3>
-                <button onclick="skyDropDown()" class="dropbtn">Change the Sky</button>
-                <div id="skyTypes" class="dropdown-content">
-                <a href="">Sunny</a>
-                <a href="">Cloudy</a>
-                <a href="">Rainy</a>
-                <a href="">Snowy</a>
-                </div>
-            </section>
+
+            <!-- <section id="skyDropDown">
+                <label>Choose the Sky:
+                    <select id="changeTheSky" name="changeTheSky">
+                    <option value="">Select one...</option>
+                    <option value="☁️ ☁️ ☁️ ☀️ ☁️ ☁️">Sunny</option>
+                    <option value="☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️">Cloudy</option>
+                    <option value="🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧">Rainy</option>
+                    <option value="🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨">Snowy</option>
+                    <option value="🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶">Cats and Dogs</option>
+                    </select>
+                </label>
+              
+                <div class="result"></div>
+            </section> -->
             
-            <section>
-                <!-- //(button to reset city name, wave6) -->
+
+            <section id="skyDropDown">
+                <label>Choose the Sky:
+                    <select id="changeTheSky" name="changeTheSky">
+                    <option value="">Select one...</option>
+                    <option id="sunny" value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="snowy">Snowy</option>
+                    <option value="catsanddogs">Cats and Dogs</option>
+                    </select>
+                </label>
+              
+                <div class="result"></div>
             </section>
 
 
