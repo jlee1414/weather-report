@@ -1,23 +1,56 @@
 'use strict';
 
-/* wave 2 
-* to do *
---> element that displays landscape
-
-* question parking lot *
---> are separate increaseTemp and decreaseTemp variables needed or can I put these under one changeTemp const?
-
---> pros/cons of using queryselector vs getelementbyid?
-
---> why do the increase/decrease temp buttons have borders?
-*/
-
 const state = {
   tempCount: 0,
+  cityName: '',
+  latitude: 0,
+  longitude: 0,
+};
+
+function convertTempKtoF(tempInK) {
+  return Math.round(1.8 * (tempInK - 273) + 32);
+}
+
+const getCityCoordinates = () => {
+  axios
+    .get('http://127.0.0.1:5000/location', {
+      params: {
+        q: state.cityName,
+      },
+    })
+    .then((response) => {
+      state.latitude = response.data[0].lat;
+      state.longitude = response.data[0].lon;
+      console.log('Success: ', response.data);
+
+      // call the weather API here
+      const getCityTemp = () => {
+        axios
+          .get('http://127.0.0.1:5000/weather', {
+            params: {
+              lat: state.latitude,
+              lon: state.longitude,
+            },
+          })
+          .then((response) => {
+            console.log(response.data.current.temp);
+            state.tempCount = convertTempKtoF(response.data.current.temp);
+            changeTempColor();
+            populateLandscape();
+          })
+          .catch((error) => {
+            console.log('Error: ', error);
+          });
+      };
+
+      getCityTemp();
+    })
+    .catch((error) => {
+      console.log('Error: ', error.response);
+    });
 };
 
 const increaseTemp = (event) => {
-  // const newTemp = document.createElement('span');
   const tempCountContainer = document.querySelector('#tempCount');
   tempCountContainer.textContent = `${state.tempCount}`;
   state.tempCount += 1;
@@ -34,7 +67,8 @@ const decreaseTemp = (event) => {
 };
 
 function changeTempColor() {
-  const temperature = document.querySelector('#tempCount');
+  const temperature = document.getElementById('tempCount');
+  temperature.textContent = `${state.tempCount}`;
   if (state.tempCount < 50) {
     temperature.style.color = 'purple';
   } else if (state.tempCount > 49 && state.tempCount < 60) {
@@ -69,6 +103,7 @@ const cityInput = () => {
   let inputValue = document.getElementById('cityTemp').value;
   const city = document.getElementById('cityName');
   city.textContent = inputValue;
+  state.cityName = inputValue;
 };
 
 //wave 05
@@ -76,10 +111,10 @@ const skyDropDown = () => {
   document.getElementById('skyTypes').classList.toggle('show');
 };
 
-function junnieGoToSleep() {
-  HAHAHHAHAHAHA;
-  console.log('zZzZ...:)');
-}
+// function junnieGoToSleep() {
+//   HAHAHHAHAHAHA;
+//   console.log('zZzZ...:)');
+// }
 
 window.onclick = function (event) {
   if (!event.target.matches('.dropbtn')) {
@@ -95,8 +130,14 @@ window.onclick = function (event) {
 };
 
 const registerEventHandlers = (event) => {
+  changeTempColor();
+  populateLandscape();
+
   const cityName = document.getElementById('cityTemp');
   cityName.addEventListener('change', cityInput);
+
+  const getRealTempButton = document.querySelector('#getRealTempButton');
+  getRealTempButton.addEventListener('click', getCityCoordinates);
 
   const increaseTempButton = document.querySelector('#increaseTempButton');
   increaseTempButton.addEventListener('click', increaseTemp);
