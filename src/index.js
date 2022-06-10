@@ -5,11 +5,6 @@ const state = {
   cityName: '',
   latitude: 0,
   longitude: 0,
-  sunny: '',
-  cloudy: '',
-  rainy: '',
-  snowy: '',
-  catsanddogs: '',
 };
 
 function convertTempKtoF(tempInK) {
@@ -89,15 +84,15 @@ function changeTempColor() {
 
 function populateLandscape() {
   const landscape = document.getElementById('landscape');
-  if (state.tempCount < 50) {
+  if (state.tempCount < 49) {
     landscape.textContent = '❄️🌲⛄️🌲⛄️❄️🌲❄️🌲🌲⛄️❄️🌲🌲';
-  } else if (state.tempCount > 49 && state.tempCount < 60) {
+  } else if (state.tempCount >= 50 && state.tempCount < 60) {
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-  } else if (state.tempCount > 59 && state.tempCount < 70) {
+  } else if (state.tempCount >= 60 && state.tempCount < 70) {
     landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (state.tempCount > 69 && state.tempCount < 80) {
+  } else if (state.tempCount >= 70 && state.tempCount < 80) {
     landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (state.tempCount > 79) {
+  } else if (state.tempCount >= 80) {
     landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   }
 }
@@ -113,22 +108,31 @@ const cityInput = () => {
 
 function resetCityInput() {
   let city = document.getElementById('cityName');
+  let inputContainer = document.getElementById('userInputCity')
+  inputContainer.value = ''
   city.textContent = '';
 }
 
 // // //wave 05
 function populateSky() {
+  const skyContainer = document.getElementById('changeTheSky');
   const sky = document.getElementById('sky');
-  if ((id = 'sunny')) {
-    sky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
-  } else if (state.cloudy) {
-    sky.textContent = '☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
-  } else if (state.rainy) {
-    sky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
-  } else if (state.snowy) {
-    sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
-  } else if (state.catsanddogs) {
-    sky.textContent = '🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶';
+  switch (skyContainer.value) {
+    case 'sunny':
+      sky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️ ☁️ ';
+      break;
+    case 'cloudy':
+      sky.textContent = '☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+      break;
+    case 'rainy':
+      sky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+      break;
+    case 'snowy':
+      sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+      break;
+    case 'catsanddogs':
+      sky.textContent = '🌨🐶🐱🐶🐱🐶🐱🐶🐱🐶🐱🐶🌨';
+      break;
   }
 }
 
@@ -154,10 +158,6 @@ const registerEventHandlers = (event) => {
 
   const selectTheSky = document.querySelector('#changeTheSky');
   selectTheSky.addEventListener('change', populateSky);
-
-  // const skyOuput = document.querySelector('.result');
-
-  // result.textContent = '${event.target.value}';
 };
 
 if (document.readyState !== 'loading') {
