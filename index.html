@@ -10,50 +10,51 @@
     <body>
         <main class="container">
             <header class="header">
-                <h1>
-                    Weather Report
+                <h1> 
+                Weather Report 
                 </h1>
             </header>
 
             <section id="cityText">
-                <h2>For the lovely city of <div id="cityName"></div></h2>
+                <h2>For the city of: <div id="cityName"></div></h2>
             </section>
 
             <section id="tempCountContainer">
                 <h3>Temperature (°F)</h3>
                 <button id="increaseTempButton">⬆️</button>
-                <h3 id="tempCount">0</h3>
+                <p id="tempCount">0</p>
                 <button id="decreaseTempButton">⬇️</button>
                 <br>
-                <!-- <button id="getRealTempButton">Get Realtime Temperature🌡</button>  -->
             </section>
             
             <section id="weatherGarden">
-                <h3>Weather Garden</h3>
+                <h3 id="weatherGardenFont">Weather Garden</h3>
                 <div id="sky"></div>
+                <br>
+                <br>
+                <br>
                 <div id="landscape"></div>
+                <br>
+                <br>
             </section>
 
             <section id="city">
                 <h3>City</h3>
-                <!-- <label>Input City:</label> -->
-                <!-- <input type="text" id="userInputCity" >  -->
-                <!-- <button type="button" onclick="resetCityInput()">
-                    Reset 
-                </button>  -->
                 <p id="cityInput"></p>
-
-                Enter City Name:
-                <input type="text" id="userInputCity">
-                <button id="clearButton" value="Clear">Clear</button>
+                <p><i>Enter the name of a city below to see the current temperature:</i></p>
+                <input type="text" id="userInputCity" placeholder="City">
                 <br>
-                <button id="getRealTempButton">Get Temperature🌡</button>
-
-
+                <br>
+                <button id="clearButton">✨ Reset</button>
+                <button id="getRealTempButton">🌡 Submit</button>
+                <br>
+                <p></p>
             </section>
 
             <section id="skyDropDown">
-                <label>Choose the Sky:
+                <h3>Sky</h3>
+                <p id="selectSkyFont"><i>Select a sky to change the Weather Garden</i></p>
+                <label id="skyLabel">
                     <select id="changeTheSky" name="changeTheSky">
                     <option value="">Select one...</option>
                     <option value="sunny">Sunny</option>
@@ -63,16 +64,14 @@
                     <option value="catsanddogs">Cats and Dogs</option>
                     </select>
                 </label>
-        
                 <div class="result"></div>
             </section>
-
 
         </main>
         <script src="/src/index.js"></script>
         <script src="./node_modules/axios/dist/axios.min.js"></script>
     </body>
     <footer>
-        <p>&copy; 2022</p>
+        <p>&copy; Gaby Webb & Junnie Lee 2022</p>
     </footer>
 </html>

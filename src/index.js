@@ -1,7 +1,7 @@
 'use strict';
 
 const state = {
-  tempCount: 0,
+  tempCount: 60,
   cityName: '',
   latitude: 0,
   longitude: 0,
@@ -69,31 +69,33 @@ const decreaseTemp = (event) => {
 function changeTempColor() {
   const temperature = document.getElementById('tempCount');
   temperature.textContent = `${state.tempCount}`;
-  if (state.tempCount < 50) {
-    temperature.style.color = 'purple';
-  } else if (state.tempCount > 49 && state.tempCount < 60) {
-    temperature.style.color = 'blue';
-  } else if (state.tempCount > 59 && state.tempCount < 70) {
-    temperature.style.color = 'green';
-  } else if (state.tempCount > 69 && state.tempCount < 80) {
-    temperature.style.color = 'orange';
-  } else if (state.tempCount > 79) {
-    temperature.style.color = 'red';
+  if (state.tempCount <= 32) {
+    temperature.style.color = '#4f0e99';
+  } else if (state.tempCount >= 33 && state.tempCount < 45) {
+    temperature.style.color = '#0e2c99';
+  } else if (state.tempCount >= 46 && state.tempCount < 55) {
+    temperature.style.color = '#0e8299';
+  } else if (state.tempCount >= 56 && state.tempCount < 65) {
+    temperature.style.color = '#4a7d04';
+  } else if (state.tempCount >= 66 && state.tempCount < 75) {
+    temperature.style.color = '#c46410';
+  } else if (state.tempCount >= 75) {
+    temperature.style.color = '#c42510';
   }
 }
 
 function populateLandscape() {
   const landscape = document.getElementById('landscape');
-  if (state.tempCount < 49) {
-    landscape.textContent = '❄️🌲⛄️🌲⛄️❄️🌲❄️🌲🌲⛄️❄️🌲🌲';
-  } else if (state.tempCount >= 50 && state.tempCount < 60) {
-    landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
-  } else if (state.tempCount >= 60 && state.tempCount < 70) {
-    landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
-  } else if (state.tempCount >= 70 && state.tempCount < 80) {
-    landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
-  } else if (state.tempCount >= 80) {
-    landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+  if (state.tempCount <= 32) {
+    landscape.textContent = '❄️ 🌲 ⛄️ 🌲⛄️ ❄️ 🌲 ❄️ 🌲 ⛄️ ❄️ 🌲';
+  } else if (state.tempCount >= 33 && state.tempCount < 45) {
+    landscape.textContent = '🌲 🌲 🌲 🍂 🌲 🍁 🌲 🌲 🍂 🌲';
+  } else if (state.tempCount >= 56 && state.tempCount < 65) {
+    landscape.textContent = '🌾 🌿  🌾 🌳 🌾 🍃 🌾 🌳 🌾 🍃';
+  } else if (state.tempCount >= 66 && state.tempCount < 75) {
+    landscape.textContent = '🌸 🌿 🌼 🌴 🌷 🌻 🌿 ☘️ 🌱 🌻 🌷';
+  } else if (state.tempCount >= 75) {
+    landscape.textContent = '🌵 🐍 ♨️ 🌵 🔥 🌵 🐍 🏜 ♨️';
   }
 }
 
@@ -108,8 +110,8 @@ const cityInput = () => {
 
 function resetCityInput() {
   let city = document.getElementById('cityName');
-  let inputContainer = document.getElementById('userInputCity')
-  inputContainer.value = ''
+  let inputContainer = document.getElementById('userInputCity');
+  inputContainer.value = '';
   city.textContent = '';
 }
 
@@ -119,10 +121,10 @@ function populateSky() {
   const sky = document.getElementById('sky');
   switch (skyContainer.value) {
     case 'sunny':
-      sky.textContent = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️ ☁️ ';
+      sky.textContent = '😎 😎 😎 😎 ☀️ 😎 😎 😎 😎';
       break;
     case 'cloudy':
-      sky.textContent = '☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+      sky.textContent = '☁️ ☁️  ☁️☁️ ☁️ 🌤 ☁️ ☁️ ☁️☁️☁️';
       break;
     case 'rainy':
       sky.textContent = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
