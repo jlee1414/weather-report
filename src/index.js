@@ -1,8 +1,10 @@
-'use strict';
+// import 'regenerator-runtime/runtime';
+// import axios from 'axios';
+('use strict');
 
 const state = {
   tempCount: 60,
-  cityName: '',
+  cityName: 'Seattle',
   latitude: 0,
   longitude: 0,
 };
@@ -13,7 +15,7 @@ function convertTempKtoF(tempInK) {
 
 const getCityCoordinates = () => {
   axios
-    .get('http://127.0.0.1:5000/location', {
+    .get('https://fast-dawn-95769.herokuapp.com/location', {
       params: {
         q: state.cityName,
       },
@@ -26,7 +28,7 @@ const getCityCoordinates = () => {
       // call the weather API here
       const getCityTemp = () => {
         axios
-          .get('http://127.0.0.1:5000/weather', {
+          .get('https://fast-dawn-95769.herokuapp.com/weather', {
             params: {
               lat: state.latitude,
               lon: state.longitude,
