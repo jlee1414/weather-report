@@ -1,8 +1,11 @@
+import 'regenerator-runtime/runtime';
+import axios from 'axios';
+
 'use strict';
 
 const state = {
   tempCount: 60,
-  cityName: '',
+  cityName: 'Seattle',
   latitude: 0,
   longitude: 0,
 };
@@ -13,7 +16,7 @@ function convertTempKtoF(tempInK) {
 
 const getCityCoordinates = () => {
   axios
-    .get('http://127.0.0.1:5000/location', {
+    .get('https://fast-dawn-95769.herokuapp.com/location', {
       params: {
         q: state.cityName,
       },
@@ -23,10 +26,9 @@ const getCityCoordinates = () => {
       state.longitude = response.data[0].lon;
       console.log('Success: ', response.data);
 
-      // call the weather API here
       const getCityTemp = () => {
         axios
-          .get('http://127.0.0.1:5000/weather', {
+          .get('https://fast-dawn-95769.herokuapp.com/weather', {
             params: {
               lat: state.latitude,
               lon: state.longitude,
@@ -39,7 +41,7 @@ const getCityCoordinates = () => {
             populateLandscape();
           })
           .catch((error) => {
-            console.log('Error: ', error);
+            console.log('Error: ', error.response);
           });
       };
 
@@ -99,8 +101,6 @@ function populateLandscape() {
   }
 }
 
-// wave 3, city name must update every time there is a text input
-
 const cityInput = () => {
   let inputValue = document.getElementById('userInputCity').value;
   let city = document.getElementById('cityName');
@@ -115,7 +115,6 @@ function resetCityInput() {
   city.textContent = '';
 }
 
-// // //wave 05
 function populateSky() {
   const skyContainer = document.getElementById('changeTheSky');
   const sky = document.getElementById('sky');
@@ -138,7 +137,7 @@ function populateSky() {
   }
 }
 
-const registerEventHandlers = (event) => {
+const registerEventHandlers = () => {
   changeTempColor();
   populateLandscape();
   populateSky();
