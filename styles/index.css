@@ -25,13 +25,10 @@ body {
     grid-row: 1/2;
     text-align: center;
     font-size: 30pt;
-    /* margin-bottom: -50px; */
 }
 
 .header::before {
-    /* background-color: #8abdf094; */
     content: "";
-    /* background-image: url(weather.jpeg); */
     position: absolute;
     top: 0px;
     right: 0px;
@@ -72,10 +69,7 @@ h3 {
     text-transform: uppercase;
 }
 #tempCountContainer {
-    /* background-color: #ffffff81; */
     text-align: center;
-    /* grid-column: 1/3;
-    grid-row: 4/6; */
     grid-row: 3/3;
     grid-column: 3/4;
     border-radius: 10px;
@@ -134,7 +128,6 @@ h3 {
 
 
 #city {
-    /* background-color: #ffecc085;*/
     text-align: center;
     grid-column: 1/3;
     grid-row: 3/3;
@@ -145,14 +138,11 @@ h3 {
 }
 
 #skyDropDown {
-    /* background-color: #ffc0cb8e;*/
     grid-row: 3/3;
     grid-column: 4/6;
     border-radius: 10px;
     text-align: center;
     margin-right: 65px
-    /* margin: 30px */
-
 }
 
 #selectSkyFont {
@@ -175,7 +165,6 @@ h3 {
 }
 
 #weatherGarden {
-    /* background-color: #bab3b394; */
     position: relative;
     text-align: center;
     grid-row: 4/8;
@@ -199,7 +188,7 @@ h3 {
     }
 
 #city, #tempCountContainer, #skyDropDown {
-    /* margin: 5%; */
+    
     background-color: #dfd5d580;
 }
 
@@ -215,12 +204,12 @@ h3 {
 }
 
 footer {
-    /* background-color: #dbd4d4b6; */
+
     text-align: center;
     font-size: 14pt;
     font-weight: bold;
     color: black;
     grid-column: 1/6;
     grid-row: 3/4;
-    margin-left: 50px
+    margin-left: 50px;
 }
