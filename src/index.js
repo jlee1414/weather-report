@@ -25,7 +25,6 @@ const getCityCoordinates = () => {
       state.longitude = response.data[0].lon;
       console.log('Success: ', response.data);
 
-      // call the weather API here
       const getCityTemp = () => {
         axios
           .get('https://fast-dawn-95769.herokuapp.com/weather', {
@@ -41,7 +40,7 @@ const getCityCoordinates = () => {
             populateLandscape();
           })
           .catch((error) => {
-            console.log('Error: ', error);
+            console.log('Error: ', error.response);
           });
       };
 
@@ -101,8 +100,6 @@ function populateLandscape() {
   }
 }
 
-// wave 3, city name must update every time there is a text input
-
 const cityInput = () => {
   let inputValue = document.getElementById('userInputCity').value;
   let city = document.getElementById('cityName');
@@ -117,7 +114,6 @@ function resetCityInput() {
   city.textContent = '';
 }
 
-// // //wave 05
 function populateSky() {
   const skyContainer = document.getElementById('changeTheSky');
   const sky = document.getElementById('sky');
