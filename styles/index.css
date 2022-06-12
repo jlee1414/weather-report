@@ -9,7 +9,7 @@
 }
 
 body {
-    background-image: url(landscape.jpeg);
+    background-image: url(euca.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #6495ed;
@@ -25,12 +25,13 @@ body {
     grid-row: 1/2;
     text-align: center;
     font-size: 30pt;
+    /* margin-bottom: -50px; */
 }
 
 .header::before {
     /* background-color: #8abdf094; */
     content: "";
-    background-image: url(weather.jpeg);
+    /* background-image: url(weather.jpeg); */
     position: absolute;
     top: 0px;
     right: 0px;
@@ -42,22 +43,24 @@ body {
 
 
 h1 {
-    color: white;
+    color: black;
     position: relative;
     font-size: 50pt;
     line-height: 0.9;
     text-align: center;
+    
 }
 
 
 h2 {
-    color: whitesmoke;
+    color: black;
 }
 
 h3 {
     padding: 10px;
     text-align: center;
     color: #383333;
+    font-weight: bolder;
 }
 
 #userInputCity {
@@ -78,13 +81,14 @@ h3 {
     border-radius: 10px;
     padding: .5em;
     width: 55%;
-    margin-left: 75px
-        /* place-self: center stretch; */
+    margin-left: 75px;
+    font-weight: bolder
 }
 
 #tempCount {
     font-size: 18pt;
     justify-self: center;
+    font-weight: bolder
 }
 
 #increaseTempButton {
@@ -119,11 +123,13 @@ h3 {
 }
 
 #cityText {
-    grid-column: 1/6;
+    grid-column: 3/3;
     grid-row: 2/3;
     border-radius: 10px;
     text-align: center;
     font-size: 15pt;
+    background-color:  #dfd5d580;
+    opacity: 2.0;
 }
 
 
@@ -134,8 +140,8 @@ h3 {
     grid-row: 3/3;
     border-radius: 10px;
     margin-left: 50px;
+    font-weight: bolder;
 
-    /* margin: 30px */
 }
 
 #skyDropDown {
@@ -144,13 +150,19 @@ h3 {
     grid-column: 4/6;
     border-radius: 10px;
     text-align: center;
-    margin-right: 50px
+    margin-right: 65px
     /* margin: 30px */
 
 }
 
 #selectSkyFont {
     text-align: center;
+    font-weight: bolder
+}
+
+#sky {
+    text-align: center;
+    font-size: 20pt
 }
 
 #changeTheSky {
@@ -158,45 +170,48 @@ h3 {
     height: 25px;
     font-size: 12pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    justify-content: center
+    justify-content: center;
+    font-weight: bolder
 }
 
 #weatherGarden {
     /* background-color: #bab3b394; */
     position: relative;
     text-align: center;
-    grid-row: 4/10;
-    grid-column: 1/6;
+    grid-row: 4/8;
+    grid-column: 2/5;
     border-radius: 10px;
     border-color: #bab3b3;
-    background-image: url(garden.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100% 75%;
-    margin-left: 30px;
     margin-right: 50px;
     margin-top: 30px;
-    border-radius: 25px
+    border-radius: 25px;
+    background-color: #dfd5d580;
+    margin-left: 235px;
+    font-weight: bolder;
+    margin-bottom: 50px
 }
+
 
 
 #landscape {
     text-align: center;
     font-size: 20pt;
-    vertical-align: bottom;
     }
-
-#sky {
-    text-align: center;
-    font-size: 20pt;
-}
-/* #sky {
-    text-align: center;
-    font-size: 40pt;
-} */
 
 #city, #tempCountContainer, #skyDropDown {
     /* margin: 5%; */
     background-color: #dfd5d580;
+}
+
+#us {
+    grid-row:8/9;
+    grid-column: 3/3 
+}
+
+#gaby, #chimmy {
+    width: 75px;
+    height: 75px;
+    border-radius: 50px;
 }
 
 footer {
@@ -204,7 +219,8 @@ footer {
     text-align: center;
     font-size: 14pt;
     font-weight: bold;
-    color: white;
-    /* grid-column: 1/6; */
-    /* grid-row: 8/9; */
+    color: black;
+    grid-column: 1/6;
+    grid-row: 3/4;
+    margin-left: 50px
 }
