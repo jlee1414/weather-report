@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 import 'regenerator-runtime/runtime';
 import axios from 'axios';
 
@@ -136,7 +136,7 @@ function populateSky() {
   }
 }
 
-const registerEventHandlers = (event) => {
+const registerEventHandlers = () => {
   changeTempColor();
   populateLandscape();
   populateSky();
